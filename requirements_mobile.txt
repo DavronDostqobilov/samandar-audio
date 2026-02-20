@@ -1,0 +1,4 @@
+flet
+edge-tts
+PyPDF2
+pygame-ce
