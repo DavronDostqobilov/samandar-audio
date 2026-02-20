@@ -36,11 +36,11 @@ jobs:
 
       - name: Build APK
         run: |
-          cp requirements_mobile.txt requirements.txt
+          cd mobile_project
           yes | flet build apk --verbose
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/apk/*.apk
+          path: mobile_project/build/apk/*.apk
