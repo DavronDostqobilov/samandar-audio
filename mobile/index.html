@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Digital Audio Library Mobile</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="glass-effect">
+            <div class="header-content">
+                <div class="logo">
+                    <i data-lucide="library" class="icon-primary"></i>
+                    <span>Audio Kitob</span>
+                </div>
+                <button id="voice-btn" class="voice-trigger">
+                    <i data-lucide="mic"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-scroll">
+            <section class="hero">
+                <h1>Xush kelibsiz!</h1>
+                <p>Nima tinglashni xohlaysiz?</p>
+            </section>
+
+            <!-- Category Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="audiobooks">
+                    <i data-lucide="book-open"></i> Kitoblar
+                </button>
+                <button class="tab-btn" data-tab="music">
+                    <i data-lucide="music"></i> Musiqalar
+                </button>
+            </div>
+
+            <!-- List Area -->
+            <div id="item-list" class="list-container">
+                <!-- Items will be injected here -->
+                <div class="loading-shimmer"></div>
+            </div>
+        </main>
+
+        <!-- Player Bar (Mini) -->
+        <div id="mini-player" class="glass-effect hidden">
+            <div class="mini-info">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=100&auto=format&fit=crop" alt="Cover" class="mini-cover">
+                <div class="mini-text">
+                    <span class="mini-title">Hozir ijroda...</span>
+                    <span class="mini-subtitle">Kitob nomi</span>
+                </div>
+            </div>
+            <div class="mini-controls">
+                <button id="mini-play-btn"><i data-lucide="play"></i></button>
+            </div>
+        </div>
+
+        <!-- Full Player Overlay -->
+        <div id="player-overlay" class="player-overlay">
+            <button class="close-overlay"><i data-lucide="chevron-down"></i></button>
+            <div class="player-content">
+                <div class="cover-art">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400&auto=format&fit=crop" alt="Book Cover">
+                </div>
+                <div class="track-info">
+                    <h2 id="current-title">Sariq devni minib</h2>
+                    <p id="current-author">Xudayberdi To'xtaboyev</p>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="time-stamps">
+                        <span>02:45</span>
+                        <span>15:20</span>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button class="btn-secondary"><i data-lucide="skip-back"></i></button>
+                    <button class="btn-primary play-main"><i data-lucide="play"></i></button>
+                    <button class="btn-secondary"><i data-lucide="skip-forward"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Command Feedback Overlay -->
+        <div id="voice-overlay" class="voice-overlay hidden">
+            <div class="voice-status">
+                <div class="pulse-ring"></div>
+                <i data-lucide="mic"></i>
+            </div>
+            <p id="voice-text">Buyruq kutilmoqda...</p>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav glass-effect">
+            <button class="nav-item active"><i data-lucide="home"></i><span>Bosh sahifa</span></button>
+            <button class="nav-item"><i data-lucide="search"></i><span>Qidiruv</span></button>
+            <button class="nav-item"><i data-lucide="folder-plus"></i><span>Yuklash</span></button>
+            <button class="nav-item"><i data-lucide="settings"></i><span>Sozlamalar</span></button>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

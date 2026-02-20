@@ -1,0 +1,12 @@
+PyPDF2
+pyttsx3
+tk
+SpeechRecognition
+pyaudio
+sounddevice
+numpy
+scipy
+gTTS
+pygame-ce
+edge-tts
+flet
