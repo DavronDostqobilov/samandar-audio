@@ -38,7 +38,8 @@ jobs:
       - name: Build APK
         run: |
           cd mobile_project
-          flet build apk --project "AudioKitob"
+          # Use yes | to automatically accept Flutter SDK installation prompts
+          yes | flet build apk --project "AudioKitob"
 
       - name: Upload Android APK
         uses: actions/upload-artifact@v4
@@ -70,9 +71,8 @@ jobs:
       - name: Build iOS (No Signing)
         run: |
           cd mobile_project
-          # iOS building without certificates can be tricky, 
-          # we use --no-codesign if supported or just build for simulator/testing
-          flet build ios --no-codesign || echo "iOS build failed because of signing requirements. Manual signing needed for real devices."
+          # Use yes | to automatically accept prompts
+          yes | flet build ios --no-codesign || echo "iOS build failed because of signing requirements. Manual signing needed for real devices."
 
       - name: Upload iOS Build
         uses: actions/upload-artifact@v4
@@ -80,4 +80,5 @@ jobs:
           name: AudioKitob-iOS
           path: mobile_project/build/ios/iphoneos/*.app
         continue-on-error: true
+
 
